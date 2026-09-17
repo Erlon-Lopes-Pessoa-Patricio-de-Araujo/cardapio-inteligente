@@ -17,6 +17,7 @@ const UI = {
   banners: [],
   categorias: [],
   config: null,
+  adicionais: [],
   produtoSelecionado: null,
   adicionaisSelecionados: [],
   qtdModal: 1,
@@ -39,10 +40,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   Cart.init();
 
   // Carrega dados
-  [UI.produtos, UI.banners, UI.categorias, UI.config] = await Promise.all([
+  [UI.produtos, UI.banners, UI.categorias, UI.adicionais, UI.config] = await Promise.all([
     dataService.getProdutos(),
     dataService.getBanners(),
     dataService.getCategorias(),
+    dataService.getAdicionais(),
     dataService.getConfig(),
   ]);
 
@@ -401,7 +403,14 @@ function abrirModalProduto(produto) {
   UI.obsModal = "";
 
   const overlay = $("#modal-produto");
-  const adicionais = dataService.getAdicionais();
+  
+  // Filtra adicionais para este produto
+  const adicionais = UI.adicionais.filter(a => {
+    if (a.categorias.length === 0 && a.ids_produtos.length === 0) return true;
+    if (a.categorias.length > 0 && a.categorias.includes(produto.categoria)) return true;
+    if (a.ids_produtos.length > 0 && a.ids_produtos.includes(produto.id)) return true;
+    return false;
+  });
 
   // Foto e info
   $("#mp-foto").src = produto.imagem;
@@ -461,7 +470,7 @@ function toggleAdicional(e) {
   const item = e.target.closest("[data-aid]");
   if (!item) return;
   const aid = item.dataset.aid;
-  const adicionais = dataService.getAdicionais();
+  const adicionais = UI.adicionais;
   const ad = adicionais.find((a) => a.id === aid);
   if (!ad) return;
 

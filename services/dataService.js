@@ -24,6 +24,9 @@ const DATA_CONFIG = {
 
   // URL da aba "config" (opcional - crie a aba "config" na planilha se desejar)
   SHEET_CONFIG_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vS0JzkNKxHO14gaRD33UeXYdysFcaoE8uh-xjYaCqFN8vHoPBevOG2fioTiKCEHk7k-MEOJutvbi60E/pubhtml?gid=1293485012&single=true",
+
+  // URL da aba "adicionais" exportada como CSV (crie a aba, publique como CSV e coloque o link aqui)
+  SHEET_ADICIONAIS_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vS0JzkNKxHO14gaRD33UeXYdysFcaoE8uh-xjYaCqFN8vHoPBevOG2fioTiKCEHk7k-MEOJutvbi60E/pubhtml?gid=782474569&single=true",
 };
 
 /* ────────────────────────────────────────────
@@ -139,6 +142,25 @@ function normalizeBanner(row) {
   };
 }
 
+function normalizeAdicional(row) {
+  // Ignora linhas vazias que o Google Sheets pode exportar
+  if (!row.nome && !row.preco) return null;
+
+  let isDisponivel = true;
+  if (row.disponivel && row.disponivel.trim() !== "") {
+     isDisponivel = row.disponivel.trim().toUpperCase() === "SIM";
+  }
+
+  return {
+    id: row.id || String(Math.random()),
+    nome: row.nome || "Adicional",
+    preco: parsePreco(row.preco) || 0,
+    disponivel: isDisponivel,
+    categorias: row.categorias ? row.categorias.split(",").map(c => normalizeCategoria(c)) : [],
+    ids_produtos: row.ids_produtos ? row.ids_produtos.split(",").map(i => i.trim()) : []
+  };
+}
+
 /* ────────────────────────────────────────────
    API pública do dataService
    ──────────────────────────────────────────── */
@@ -184,7 +206,20 @@ const dataService = {
     return CATEGORIAS;
   },
 
-  getAdicionais() {
+  async getAdicionais() {
+    if (DATA_CONFIG.SHEET_MODE === "sheets" && DATA_CONFIG.SHEET_ADICIONAIS_URL) {
+      try {
+        const res = await fetch(DATA_CONFIG.SHEET_ADICIONAIS_URL);
+        const csv = await res.text();
+        const adicionais = parseCSV(csv)
+          .map(normalizeAdicional)
+          .filter((a) => a !== null && a.disponivel);
+
+        if (adicionais.length > 0) return adicionais;
+      } catch (err) {
+        console.warn("[dataService] Falha ao carregar adicionais Sheets, usando mock.", err);
+      }
+    }
     return ADICIONAIS;
   },
 
@@ -201,7 +236,7 @@ const dataService = {
         const res = await fetch(DATA_CONFIG.SHEET_CONFIG_URL);
         const csv = await res.text();
         const rows = parseCSV(csv);
-        
+
         if (rows.length > 0) {
           // Detecta se a tabela está no formato Vertical (colunas: chave, valor)
           if ("chave" in rows[0] || "key" in rows[0] || "item" in rows[0]) {
