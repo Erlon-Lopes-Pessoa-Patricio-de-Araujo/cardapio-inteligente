@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- SEO -->
+  <title>House 28 Burguer | Hambúrguer Artesanal em Tracunhaém-PE</title>
+  <meta name="description" content="Cardápio da House 28 Burguer. Hambúrgueres artesanais, combos, porções e bebidas em Tracunhaém-PE. Faça seu pedido pelo WhatsApp.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://house28burguer.com.br/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="House 28 Burguer | Hambúrguer Artesanal em Tracunhaém-PE">
+  <meta property="og:description" content="Hambúrgueres artesanais feitos na chapa. Confira o cardápio e faça seu pedido pelo WhatsApp.">
+  <meta property="og:url" content="https://house28burguer.com.br/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&h=630&fit=crop">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="House 28 Burguer">
+  <meta name="twitter:description" content="Hambúrgueres artesanais em Tracunhaém-PE. Peça pelo WhatsApp.">
+
+  <!-- Tema mobile -->
+  <meta name="theme-color" content="#0f0f0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Fonts: Barlow Condensed + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Favicon placeholder (substituir pelo ícone real) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════════════ -->
+<header class="header" role="banner">
+  <div class="header__inner">
+
+    <!-- Menu hamburguer (mobile) -->
+    <button class="header__hamburger" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Logo -->
+    <a href="#" class="header__logo" aria-label="House 28 Burguer — Página inicial">
+      <!-- Substitua pelo seu logo real: <img class="header__logo-img" src="assets/logo.png" alt="House 28 Burguer"> -->
+      <div class="header__logo-text">
+        <span class="header__logo-name">House <span style="color:var(--cor-primaria)">28</span></span>
+        <span class="header__logo-sub">Burguer · Artesanal</span>
+      </div>
+    </a>
+
+    <!-- Nav desktop -->
+    <nav class="header__nav" aria-label="Navegação principal">
+      <a href="#" class="header__nav-link ativo" data-scroll="topo">Início</a>
+      <a href="#" class="header__nav-link" data-scroll="secao-cardapio">Cardápio</a>
+      <a href="#" class="header__nav-link" data-scroll="secao-destaques">Destaques</a>
+      <a href="#" class="header__nav-link" data-scroll="footer">Contato</a>
+    </nav>
+
+    <!-- Pesquisa desktop -->
+    <div class="header__search" role="search">
+      <svg class="header__search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+      <input
+        id="busca-input"
+        class="header__search-input"
+        type="search"
+        placeholder="Buscar no cardápio..."
+        aria-label="Buscar produtos"
+        autocomplete="off"
+      >
+    </div>
+
+    <!-- Ações: carrinho -->
+    <div class="header__actions">
+      <!-- Status aberto (desktop) -->
+      <div class="header__status desktop-only" aria-label="Status da loja">
+        <span class="header__status-dot" id="header-status-dot" aria-hidden="true"></span>
+        <span id="header-status-texto">Aberto agora</span>
+      </div>
+
+      <!-- Botão carrinho -->
+      <button class="header__btn-icon" id="btn-header-cart" aria-label="Ver carrinho de compras">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        <span class="header__cart-badge" id="header-cart-badge" aria-live="polite">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Busca mobile (abaixo do header) -->
+  <div class="header__mobile-search mobile-only" role="search">
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true" style="color:var(--cor-texto-3);flex-shrink:0;">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+    </svg>
+    <input
+      id="busca-mobile"
+      type="search"
+      placeholder="Buscar no cardápio..."
+      aria-label="Buscar produtos"
+      autocomplete="off"
+    >
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     MENU LATERAL (mobile)
+     ══════════════════════════════════════════════ -->
+<div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+<nav class="menu-lateral" id="menu-lateral" aria-label="Menu de categorias">
+  <div class="menu-lateral__header">
+    <div>
+      <div class="menu-lateral__nome">House <span style="color:var(--cor-primaria)">28</span></div>
+      <div class="menu-lateral__sub">Burguer · Tracunhaém</div>
+    </div>
+    <button id="btn-fechar-menu" class="menu-lateral__fechar" aria-label="Fechar menu"
+      style="margin-left:auto;width:32px;height:32px;border-radius:var(--raio-md);
+      background:var(--cor-fundo-3);color:var(--cor-texto-2);display:flex;align-items:center;justify-content:center;">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <div class="menu-lateral__links">
+    <a href="#" class="menu-lateral__link ativo" data-cat="todos">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+      </svg>
+      Cardápio completo
+    </a>
+    <a href="#" class="menu-lateral__link" data-cat="hamburgueres">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 10H3M21 6H3a2 2 0 00-2 2v8a2 2 0 002 2h18a2 2 0 002-2V8a2 2 0 00-2-2z"/>
+      </svg>
+      Hambúrgueres
+    </a>
+    <a href="#" class="menu-lateral__link" data-cat="combos">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+      </svg>
+      Combos
+    </a>
+    <a href="#" class="menu-lateral__link" data-cat="porcoes">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+      </svg>
+      Porções
+    </a>
+    <a href="#" class="menu-lateral__link" data-cat="bebidas">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+      </svg>
+      Bebidas
+    </a>
+    <a href="#" class="menu-lateral__link" data-cat="sobremesas">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+      Sobremesas
+    </a>
+  </div>
+  <div class="menu-lateral__rodape">
+    <p id="side-menu-status">Aberto hoje até 23:30</p>
+    <p>Av. Des. Carlos Vaz, Tracunhaém-PE</p>
+    <p style="margin-top:4px"><a href="https://instagram.com/house.28burguer" target="_blank" rel="noopener">@house.28burguer</a></p>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     CONTEÚDO PRINCIPAL
+     ══════════════════════════════════════════════ -->
+<main class="conteudo-principal" id="topo">
+
+  <!-- Banner Carrossel -->
+  <section class="banner" aria-label="Destaques e promoções" aria-roledescription="carrossel">
+    <div class="banner__track" id="banner-track" role="presentation"></div>
+    <div class="banner__dots" id="banner-dots" role="tablist" aria-label="Slides do banner"></div>
+  </section>
+
+  <!-- Info rápida: status + entrega -->
+  <div style="background:var(--cor-fundo-2);border-bottom:1px solid var(--cor-borda);">
+    <div class="inner" style="max-width:var(--max-largura);margin:0 auto;padding:0 var(--espaco-md);">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:var(--espaco-md);flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--cor-texto-2);">
+          <span class="header__status-dot" id="bar-status-dot" aria-hidden="true"></span>
+          <span id="info-status-texto">Aberto agora · Tracunhaém-PE · Fecha às 23:30</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--espaco-md);font-size:.75rem;color:var(--cor-texto-3);">
+          <span id="info-tempo-entrega">🛵 Entrega: 35–50 min</span>
+          <span id="info-frete-gratis">📦 Grátis acima de R$ 50</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner" style="max-width:var(--max-largura);margin:0 auto;padding:0 var(--espaco-md);">
+
+    <!-- Categorias -->
+    <section class="categorias" aria-label="Categorias do cardápio">
+      <div class="categorias__lista" id="categorias-lista" role="list"></div>
+    </section>
+
+    <!-- Destaques -->
+    <section class="secao" id="secao-destaques" aria-label="Destaques da semana">
+      <h2 class="secao__titulo">Destaques</h2>
+      <div class="destaques-scroll" id="destaques-scroll" role="list" aria-label="Produtos em destaque"></div>
+    </section>
+
+    <!-- Cardápio -->
+    <section class="secao" id="secao-cardapio" aria-label="Cardápio completo">
+      <h2 class="secao__titulo" id="titulo-cardapio">Nosso Cardápio</h2>
+      <div class="produtos-grid" id="cardapio-grid" role="list"></div>
+    </section>
+
+  </div><!-- /inner -->
+
+</main>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════ -->
+<footer class="footer" id="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">House <span>28</span> Burguer</div>
+        <div class="footer__tagline">Artesanal na chapa, feito pra matar a fome.</div>
+        <div class="footer__linha">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <span>Av. Des. Carlos Vaz, Tracunhaém-PE, Brasil</span>
+        </div>
+        <div class="footer__linha">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+          <a href="https://instagram.com/house.28burguer" target="_blank" rel="noopener noreferrer">@house.28burguer</a>
+        </div>
+        <div class="footer__linha">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <a href="https://wa.me/5581999999999" target="_blank" rel="noopener noreferrer">(81) 99999-9999</a>
+        </div>
+      </div>
+      <div class="desktop-only">
+        <p style="font-family:var(--fonte-titulo);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cor-texto-2);margin-bottom:var(--espaco-md);">Cardápio</p>
+        <ul style="display:flex;flex-direction:column;gap:8px;">
+          <li><a href="#" class="menu-lateral__link" style="padding:4px 0;font-size:.85rem;" data-cat="hamburgueres">Hambúrgueres</a></li>
+          <li><a href="#" class="menu-lateral__link" style="padding:4px 0;font-size:.85rem;" data-cat="combos">Combos</a></li>
+          <li><a href="#" class="menu-lateral__link" style="padding:4px 0;font-size:.85rem;" data-cat="porcoes">Porções</a></li>
+          <li><a href="#" class="menu-lateral__link" style="padding:4px 0;font-size:.85rem;" data-cat="bebidas">Bebidas</a></li>
+          <li><a href="#" class="menu-lateral__link" style="padding:4px 0;font-size:.85rem;" data-cat="sobremesas">Sobremesas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      &copy; 2024 House 28 Burguer · Tracunhaém-PE · Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     BARRA DO CARRINHO (mobile)
+     ══════════════════════════════════════════════ -->
+<div class="barra-carrinho" id="barra-carrinho" role="region" aria-label="Resumo do pedido">
+  <div class="barra-carrinho__inner">
+    <div class="barra-carrinho__info">
+      <div class="barra-carrinho__icone">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        <span class="barra-carrinho__badge">0</span>
+      </div>
+      <div class="barra-carrinho__texto">
+        <span class="barra-carrinho__itens">0 itens</span>
+        <span class="barra-carrinho__total">R$ 0,00</span>
+      </div>
+    </div>
+    <button class="barra-carrinho__btn" aria-label="Ver pedido completo">Ver Pedido</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     MODAL — PRODUTO
+     ══════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-produto" id="modal-produto-overlay" role="dialog" aria-modal="true" aria-labelledby="mp-nome">
+  <div class="modal">
+    <div class="modal__alca" aria-hidden="true"></div>
+
+    <!-- Foto -->
+    <img id="mp-foto" class="produto-modal__foto" src="" alt="" loading="lazy">
+
+    <!-- Header -->
+    <div class="modal__header">
+      <div style="flex:1;min-width:0;">
+        <h2 class="produto-modal__nome" id="mp-nome"></h2>
+        <div class="produto-modal__preco-wrap">
+          <span class="produto-modal__preco" id="mp-preco"></span>
+          <span class="produto-modal__preco-antigo hidden" id="mp-preco-antigo"></span>
+        </div>
+      </div>
+      <button class="modal__fechar" id="mp-fechar" aria-label="Fechar detalhes do produto">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Corpo -->
+    <div class="modal__corpo">
+      <!-- Descrição -->
+      <div class="produto-modal__info">
+        <p class="produto-modal__desc" id="mp-desc"></p>
+      </div>
+
+      <!-- Adicionais -->
+      <div class="adicionais">
+        <h3 class="adicionais__titulo">Adicionais</h3>
+        <div id="mp-adicionais" role="group" aria-label="Escolha os adicionais"></div>
+      </div>
+
+      <!-- Observação -->
+      <div class="obs-campo">
+        <label class="obs-campo__label" for="mp-obs">Alguma observação para a cozinha?</label>
+        <textarea
+          id="mp-obs"
+          class="obs-campo__input"
+          placeholder="Ex: sem cebola, carne bem passada…"
+          rows="2"
+          aria-label="Observações para a cozinha"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Rodapé: quantidade + botão -->
+    <div class="modal__rodape">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--espaco-md);">
+        <div class="qtd-ctrl">
+          <button class="qtd-ctrl__btn" id="mp-dec" aria-label="Diminuir quantidade">−</button>
+          <span class="qtd-ctrl__num" id="mp-qtd" aria-live="polite" aria-label="Quantidade">1</span>
+          <button class="qtd-ctrl__btn" id="mp-inc" aria-label="Aumentar quantidade">+</button>
+        </div>
+        <button class="btn-adicionar" id="mp-btn-add" aria-label="Adicionar ao pedido">
+          <span class="btn-adicionar__label">Adicionar</span>
+          <span class="btn-adicionar__total">R$ 0,00</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     MODAL — CARRINHO
+     ══════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-carrinho" role="dialog" aria-modal="true" aria-label="Seu pedido">
+  <div class="modal" style="max-width:520px;">
+    <div class="modal__alca" aria-hidden="true"></div>
+    <div class="modal__header">
+      <h2 class="modal__titulo">Seu Pedido</h2>
+      <button class="modal__fechar" id="carrinho-fechar" aria-label="Fechar carrinho">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="modal__corpo">
+      <div id="carrinho-itens" role="list" aria-label="Itens do pedido"></div>
+      <div id="carrinho-resumo" class="carrinho__resumo"></div>
+    </div>
+    <div class="modal__rodape">
+      <button class="btn-finalizar" id="btn-finalizar" aria-label="Ir para finalização do pedido">
+        Finalizar Pedido
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     MODAL — CHECKOUT
+     ══════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-checkout" role="dialog" aria-modal="true" aria-label="Finalizar pedido">
+  <div class="modal" style="max-width:520px;">
+    <div class="modal__alca" aria-hidden="true"></div>
+    <div class="modal__header">
+      <h2 class="modal__titulo">Finalizar Pedido</h2>
+      <button class="modal__fechar" id="checkout-fechar" aria-label="Fechar checkout">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="modal__corpo">
+
+      <!-- Como receber -->
+      <div class="checkout-grupo">
+        <div class="checkout-grupo__titulo">Como deseja receber?</div>
+        <div class="opcoes-radio" role="radiogroup" aria-label="Forma de recebimento">
+          <button class="opcao-radio selecionado" data-entrega="retirada" role="radio" aria-checked="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Retirar no local
+          </button>
+          <button class="opcao-radio" data-entrega="entrega" role="radio" aria-checked="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            Entrega
+          </button>
+        </div>
+      </div>
+
+      <!-- Dados do cliente -->
+      <div class="checkout-grupo">
+        <div class="checkout-grupo__titulo">Seus dados</div>
+        <div class="checkout-campo">
+          <label for="checkout-nome">Nome completo *</label>
+          <input id="checkout-nome" type="text" placeholder="Ex: João Silva" autocomplete="name" required>
+        </div>
+        <div class="checkout-campo">
+          <label for="checkout-tel">Telefone / WhatsApp *</label>
+          <input id="checkout-tel" type="tel" placeholder="(81) 99999-9999" autocomplete="tel" required>
+        </div>
+      </div>
+
+      <!-- Endereço (só entrega) -->
+      <div id="campos-entrega" class="checkout-grupo hidden">
+        <div class="checkout-grupo__titulo">Endereço de entrega</div>
+        <div class="checkout-campo">
+          <label for="checkout-rua">Rua / Av.</label>
+          <input id="checkout-rua" type="text" placeholder="Ex: Rua das Flores" autocomplete="street-address">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--espaco-sm);">
+          <div class="checkout-campo">
+            <label for="checkout-num">Número</label>
+            <input id="checkout-num" type="text" placeholder="123" autocomplete="address-line2">
+          </div>
+          <div class="checkout-campo">
+            <label for="checkout-comp">Complemento</label>
+            <input id="checkout-comp" type="text" placeholder="Apto, casa...">
+          </div>
+        </div>
+        <div class="checkout-campo">
+          <label for="checkout-ref">Ponto de referência</label>
+          <input id="checkout-ref" type="text" placeholder="Ex: próximo ao mercado X">
+        </div>
+      </div>
+
+      <!-- Pagamento -->
+      <div class="checkout-grupo">
+        <div class="checkout-grupo__titulo">Forma de pagamento</div>
+        <div class="opcoes-pagamento" role="radiogroup" aria-label="Forma de pagamento">
+          <button class="opcao-pag selecionado" data-pag="Pix" role="radio" aria-checked="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
+            </svg>
+            Pix
+          </button>
+          <button class="opcao-pag" data-pag="Dinheiro" role="radio" aria-checked="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            Dinheiro
+          </button>
+          <button class="opcao-pag" data-pag="Cartão" role="radio" aria-checked="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+            </svg>
+            Cartão
+          </button>
+        </div>
+      </div>
+
+      <!-- Obs gerais -->
+      <div class="checkout-grupo">
+        <div class="checkout-grupo__titulo">Observações gerais</div>
+        <div class="checkout-campo">
+          <label for="checkout-obs">Alguma observação? (opcional)</label>
+          <textarea id="checkout-obs" rows="2" placeholder="Ex: troco para R$50, sem tomate em tudo…"></textarea>
+        </div>
+      </div>
+
+      <!-- Resumo do pedido -->
+      <div class="checkout-resumo" aria-label="Resumo do pedido">
+        <div id="checkout-resumo-itens"></div>
+        <div class="checkout-resumo__total">
+          <span class="checkout-resumo__total-label">Taxa</span>
+          <span id="checkout-taxa" style="font-size:.9rem;color:var(--cor-texto-2);">Grátis</span>
+        </div>
+        <div class="checkout-resumo__total" style="margin-top:0;border-top:1px solid var(--cor-borda);padding-top:var(--espaco-sm);">
+          <span class="checkout-resumo__total-label">Total</span>
+          <span class="checkout-resumo__total-valor" id="checkout-total">R$ 0,00</span>
+        </div>
+      </div>
+
+    </div><!-- /modal__corpo -->
+
+    <!-- Rodapé: botão WhatsApp -->
+    <div class="modal__rodape">
+      <button class="btn-whatsapp" id="btn-whatsapp" aria-label="Enviar pedido pelo WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        Enviar Pedido pelo WhatsApp
+      </button>
+      <p style="text-align:center;font-size:.7rem;color:var(--cor-texto-3);margin-top:var(--espaco-sm);">
+        Você será redirecionado para o WhatsApp da House 28
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TOAST NOTIFICAÇÃO
+     ══════════════════════════════════════════════ -->
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+  <div class="toast__icone" aria-hidden="true">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+    </svg>
+  </div>
+  <span class="toast__msg"></span>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SCRIPTS
+     ══════════════════════════════════════════════ -->
+<!-- Dados mockados -->
+<script src="data/cardapio.js"></script>
+<!-- Serviço de dados (abstração Google Sheets) -->
+<script src="services/dataService.js"></script>
+<!-- Carrinho -->
+<script src="js/cart.js"></script>
+<!-- WhatsApp -->
+<script src="js/whatsapp.js"></script>
+<!-- App principal -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
